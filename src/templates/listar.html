@@ -1,0 +1,25 @@
+{% extends "layout.html" %} {% block content %}
+<h1>Lista de aplicaciones</h1>
+<div class="bggray p-2">
+  <div class="row">
+    {% for app in aplicaciones %}
+    <div class="col-cols-12 col-md-6 col-xl-4">
+      <div class="card m-2">
+        <img src="{{app.imagen}}" class="card-img-top" alt="imagen" />
+        <div class="card-body">
+          <h5 class="card-title"><strong>{{app.nombre}}</strong></h5>
+          <span class="card-text"><strong> Puerto: </strong> {{app.puerto}}<br /></span>
+          <span class="card-text"><strong> Estado: </strong> {{app.nombre_estado}}<br /></span>
+          <span class="card-text"><strong> Tipo: </strong> {{app.nombre_tipo}}<br /></span>
+          <span class="card-text"><strong> Lenguaje o Framework: </strong> {{app.lenguaje}}<br /></span>
+          <span class="card-text"><strong> Servidor: </strong> {{app.nombre_servidor}}<br /></span>
+          <span class="card-text"><strong> Versión: </strong> {{app.version}}<br /></span>
+          <span class="card-text"><strong> Fecha de creación:</strong> {{app.fecha_creacion}}<br /></span>
+          <span class="card-text"><strong> Fecha de actualización: </strong> {{app.fecha_actualizacion}}<br /></span>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

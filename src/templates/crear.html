@@ -1,0 +1,70 @@
+{% extends "layout.html" %} {% block content %}
+<h1>Crear aplicacion</h1>
+<div class="bgwhite py-2 px-5">
+  <form action="/guardarAplicacion" method="POST">
+    <div class="form-row">
+      <div class="form-group col-md-10">
+        <label for="nombre">Nombre aplicación:</label>
+        <input required type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre aplicación" />
+      </div>
+      <div class="form-group col-md-2">
+        <label for="puerto">Puerto:</label>
+        <input required type="number" min="0" max="65535" class="form-control" id="puerto" name="puerto" placeholder="0-65535" />
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label for="estado">Estado aplicación:</label>
+        <select id="estado" name="estado" class="form-control">
+          {% for item in estados %}
+          <option value="{{item.id}}">{{item.nombre}}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="form-group col-md-4">
+        <label for="tipo">Tipo aplicación:</label>
+        <select required id="tipo" name="tipo" class="form-control">
+          {% for item in tipos %}
+          <option value="{{item.id}}">{{item.nombre}}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="form-group col-md-4">
+        <label for="servidor">Servidor:</label>
+        <select required id="servidor" name="servidor" class="form-control">
+          {% for item in servidores %}
+          <option value="{{item.id}}">{{item.nombre}}</option>
+          {% endfor %}
+        </select>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="lenguaje">Lenguaje o Framework:</label>
+        <input required type="text" class="form-control" id="lenguaje" name="lenguaje" placeholder="Python" />
+      </div>
+      <div class="form-group col-md-6">
+        <label for="version">Version:</label>
+        <input required type="text" class="form-control" id="version" name="version" placeholder="1.0.1" />
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="imagen">Imagen</label>
+      <input required type="text" class="form-control" id="imagen" name="imagen" placeholder="Url de la imagen" />
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="fecha_creacion">Fecha creación</label>
+        <input required type="date" class="form-control" id="fecha_creacion" name="fecha_creacion" />
+      </div>
+      <div class="form-group col-md-6">
+        <label for="fecha_actualizacion">Fecha actualización</label>
+        <input required type="date" class="form-control" id="fecha_actualizacion" name="fecha_actualizacion" />
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <button type="submit" class="btn btn-primary">Guardar aplicacion</button>
+    </div>
+  </form>
+</div>
+{% endblock %}
