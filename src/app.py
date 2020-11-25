@@ -10,7 +10,7 @@ servidorList = [{"id": 1, "nombre": "US-east"},{"id": 1, "nombre": "US-west"},{"
 
 @app.route('/listarAplicaciones', methods=['GET'])
 def listarAplicaciones():
-  aplicacionesList = requests.get('https://eliasramos15.pythonanywhere.com/aplicaciones').json()
+  aplicacionesList = requests.get('https://egconaplicaciones-api-rfi2t332aq-uc.a.run.app/aplicaciones').json()
   return render_template('listar.html', aplicaciones=aplicacionesList)
 
 @app.route('/crearAplicacion', methods=['GET'])
@@ -21,7 +21,7 @@ def crearAplicacion():
 def guardarAplicacion():
   aplicacion = dict(request.values)
   print(aplicacion)
-  requests.post('http://eliasramos15.pythonanywhere.com/aplicaciones', json=aplicacion)
+  requests.post('https://egconaplicaciones-api-rfi2t332aq-uc.a.run.app/aplicaciones', json=aplicacion)
   return listarAplicaciones()
 
 port = int(os.environ.get('PORT', 8080))
